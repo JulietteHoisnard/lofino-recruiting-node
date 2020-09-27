@@ -13,21 +13,40 @@ export default function Home(props: Props) {
 
   const [pet, setPet] = useState<Pet | undefined>(undefined);
 
+
+  async function fetchPetFromProps() {
+    const fetchedPet = await fetchPet(petId);
+    setPet(fetchedPet);
+  }
+
   useEffect(() => {
-    async function fetchPetFromProps() {
-      const fetchedPet = await fetchPet(petId);
-      setPet(fetchedPet);
-    }
     fetchPetFromProps();
   }, [petId]);
 
   if (!pet) {
     return <>Loading...</>;
   }
+  const { name, species, imageUrl, id } = pet;
 
   // TODO: add rate button
+  const submitRating = () => {
+    const value = (document.querySelector('#ratinginput') as HTMLInputElement).value
+    fetch(`http://localhost:8080/pets/${id}`, {
+      method: 'PUT', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ value}),
+    })
+      .then(response => response.json())
+      .then(() => {
+        fetchPetFromProps()
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
 
-  const { name, species, imageUrl } = pet;
   return (
     <>
       <article>
@@ -35,6 +54,13 @@ export default function Home(props: Props) {
           {name}
           <Rating pet={pet} />
         </h2>
+        <div>
+          <label>
+            Give your rate:
+            <input type="number" id="ratinginput" name="ratinginput" min="0" max="5"/>
+          </label>
+          <input type="submit" value="Submit" onClick={submitRating} />
+        </div>
         <img src={imageUrl} alt={`${name} the ${species}`} />
       </article>
       <footer>

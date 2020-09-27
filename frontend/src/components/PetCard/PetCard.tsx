@@ -22,7 +22,6 @@ export default function PetCard(props: Props) {
       <h2>
         {name}, {age} years old <Rating pet={props.pet} />
       </h2>
-
       <img className="pet-card--img" src={imageUrl} alt="The pet" />
     </section>
   );
