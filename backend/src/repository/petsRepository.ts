@@ -11,12 +11,12 @@ import { Rating } from "../domain/Rating";
 export async function addRating(
 	petId: number,
 	rating: Omit<Rating, "id" | "petId">
-): Promise<void> {
-	await Ratings.create({
+): Promise<RatingModel> {
+	return await Ratings.create({
 		petId,
 		value: rating.value,
 		date: rating.date,
-	});
+  });
 }
 
 /**
