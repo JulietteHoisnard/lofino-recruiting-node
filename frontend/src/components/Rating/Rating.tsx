@@ -1,5 +1,6 @@
 import React from "react";
 import Pet from "../../model/Pet";
+import { Rating } from "../../model/Rating";
 
 interface Props {
   pet: Pet;
@@ -7,12 +8,13 @@ interface Props {
 
 export default function (props: Props) {
   const ratings = props.pet.ratings;
-
+  console.log(ratings);
   // TODO: calculate average and number of ratings from props
 
-  const ratingCount = "?";
-  const average = "?";
+  const ratingCount = ratings.length;
+  const average = ratings.reduce((acc, rating) => acc + rating.value, 0) / ratings.length;
+  
   return (
-    <span id="rating-span">{`${average} / 5 (${ratingCount} ratings)`}</span>
+    <span id="rating-span">{`${average.toFixed(1)} / 5 (${ratingCount} ratings)`}</span>
   );
 }
