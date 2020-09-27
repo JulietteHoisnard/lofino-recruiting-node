@@ -14,5 +14,11 @@ describe("Pets Service", () => {
 
 		expect(result).toBeDefined();
 		expect(result!.name).toBe("Bubbles");
+  });
+  
+  it("returns undefined if there are no ratings for the given time frame", () => {
+		const result = getTrendingPet(sampleData, new Date("2030-07-06"));
+
+		expect(result).toBeUndefined();
 	});
 });
