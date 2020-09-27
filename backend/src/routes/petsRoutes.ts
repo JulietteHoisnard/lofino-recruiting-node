@@ -1,5 +1,5 @@
 import express from "express";
-import { loadPet, loadPets } from "../repository/petsRepository";
+import { addRating, loadPet, loadPets } from "../repository/petsRepository";
 
 const router = express.Router();
 
@@ -15,6 +15,18 @@ router.get("/:id", async function(req, res) {
 	try {
 		const pet = await loadPet(Number.parseInt(petId, 10));
 		res.send(pet);
+	} catch (error) {
+		console.log(error);
+		res.sendStatus(404);
+	}
+});
+
+router.put("/:id", async function(req, res) {
+  const petId = req.params.id;
+	try {
+    const pet = await loadPet(Number.parseInt(petId, 10));
+    const rating = await addRating(pet.id, {value: req.body.value, date: new Date()})
+		res.status(201).send(rating);
 	} catch (error) {
 		console.log(error);
 		res.sendStatus(404);

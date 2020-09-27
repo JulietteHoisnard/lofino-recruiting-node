@@ -1,4 +1,18 @@
 import { Pet } from "../domain/Pet";
+import { addRating } from "../repository/petsRepository";
+
+function petLength(pet: Pet, date: Date): number {
+  const petLength = pet.ratings.filter( rating => 
+    (rating.date >= soustractDays(date, 7)) && (rating.date <= date)
+  ).length
+  return petLength;
+}
+
+function soustractDays(date: Date, days: number) {
+  var result = new Date(date);
+  result.setDate(result.getDate() - days);
+  return result;
+}
 
 /**
  * finds the "trending" pet from a list of pets.
@@ -11,8 +25,7 @@ import { Pet } from "../domain/Pet";
  *
  * @returns the pet with the most ratings within the [date - 7 days, date] interval or `undefined` if there is unsufficient data within the interval
  */
-export function getTrendingPet(pets: Pet[], date: Date): Pet | undefined {
-	// TODO: implement
-
-	return undefined;
+export function getTrendingPet(pets: Pet[], date: Date): Pet | undefined {  
+  const trendingPet: Pet | undefined= pets.sort((peta, petb) => (petLength(petb, date) - petLength(peta, date)))[0];
+  return trendingPet;
 }
