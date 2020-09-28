@@ -30,7 +30,7 @@ This repository comes with two software projects: A Node.js based backend and a 
   - [x] on the details page of the pet, add an input element that lets the user rate the pet (which sends the rating to the backend).
     - Make this rating element look like the interactive 5-star rating UI known from e.g. amazon.
     - encode the existing rating in this ui element. I.e. if the pet has an average rating of 3.2, display the first 3 stars differently than the remaining 2 stars. You can use `frontend/public/star-empty.png` and `frontend/public/star-filled.png` for that.
-  - [ ] BONUS: if today is the birthday of a pet then show [this picture of a birthday hat](frontend/public/birthday-hat.png) rotated and halfway overlapping with the pet image (see [mockup](mockups/birthday-hat.png))
+  - [X] BONUS: if today is the birthday of a pet then show [this picture of a birthday hat](frontend/public/birthday-hat.png) rotated and halfway overlapping with the pet image (see [mockup](mockups/birthday-hat.png))
 
 ## Code Review
 
@@ -38,7 +38,7 @@ There's a branch `feature/findDate` in this repository. Check it out with `git c
 
 You'll find a file `backend/service/findDate.ts`. It exports a function that searches for formatted dates in an array of string. It has nothing to do with pets :D Suppose someone from your team wants to merge this to `master`.
 
-- [ ] perform a code review of `findDate.ts`. Comment on lines that you find problematic or could be improved, or if you have any other comments. Take into consideration requirements like readability, maintainablilty, performance, security etc.
+- [X] perform a code review of `findDate.ts`. Comment on lines that you find problematic or could be improved, or if you have any other comments. Take into consideration requirements like readability, maintainablilty, performance, security etc.
 
 You may do this by creating a pull request on Github and comment the changes there, or just write comments into the code, or any other way that you find appropriate.
 
