@@ -28,7 +28,6 @@ export default function Home(props: Props) {
   }
   const { name, species, imageUrl, id } = pet;
 
-  // TODO: add rate button
   const submitRating = () => {
     const value = (document.querySelector('#ratinginput') as HTMLInputElement).value
     fetch(`http://localhost:8080/pets/${id}`, {
