@@ -14,31 +14,13 @@ code {
 
 .stars-container {
   position: relative;
-  height: 24px;
-  width: 120px;
-  margin: auto;
-}
-
-.stars-empty {
-  display: inline-block;
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: url('/star-empty.png');
-  background-repeat: repeat-x;
 }
 
 .stars-full {
-  display: inline-block;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: 2;
-  background-image: url('/star-filled.png');
-  background-repeat: repeat-x;
 }

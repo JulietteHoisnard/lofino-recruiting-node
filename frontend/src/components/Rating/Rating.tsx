@@ -6,8 +6,8 @@ interface Props {
   pet: Pet;
 }
 
-const RatingIcon = () => (<span><img src="/star-empty.png" /></span>)
-const RatingIconFilled = () => (<span><img src="/star-filled.png" /></span>)
+const RatingIcon = () => (<img src="/star-empty.png" />)
+const RatingIconFilled = ({show}) => (<img style={{visibility: show ? 'visible' : 'hidden'}} src="/star-filled.png" />)
 
 
 export default function (props: Props) {
@@ -19,11 +19,21 @@ export default function (props: Props) {
     <>
       <div className="stars-container">
         <div className="stars-empty">
+          <RatingIcon />
+          <RatingIcon />
+          <RatingIcon />
+          <RatingIcon />
+          <RatingIcon />
         </div>
-        <div className="stars-full" style={{ width: `${(average * 20)}%` }}>
+        <div className="stars-full">
+          <RatingIconFilled show={average >= 1.0}/>
+          <RatingIconFilled show={average >= 2.0}/>
+          <RatingIconFilled show={average >= 3.0}/>
+          <RatingIconFilled show={average >= 4.0}/>
+          <RatingIconFilled show={average >= 5.0}/>
         </div>
       </div>
-      <span id="rating-span">{`${((average))} (${ratingCount} ratings)`}</span>
+      <span id="rating-span">{`${(average)} (${ratingCount} ratings)`}</span>
     </>
   );
 
