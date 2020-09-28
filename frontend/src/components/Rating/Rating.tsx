@@ -8,9 +8,7 @@ interface Props {
 
 export default function (props: Props) {
   const ratings = props.pet.ratings;
-  console.log(ratings);
-  // TODO: calculate average and number of ratings from props
-
+  
   const ratingCount = ratings.length;
   const average = ratings.reduce((acc, rating) => acc + rating.value, 0) / ratings.length;
   

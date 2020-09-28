@@ -32,13 +32,12 @@ export default function Home(props: Props) {
   const submitRating = () => {
     const value = (document.querySelector('#ratinginput') as HTMLInputElement).value
     fetch(`http://localhost:8080/pets/${id}`, {
-      method: 'PUT', // or 'PUT'
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ value}),
     })
-      .then(response => response.json())
       .then(() => {
         fetchPetFromProps()
       })

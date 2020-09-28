@@ -6,8 +6,8 @@ import Pet from "../../model/Pet";
 describe(Rating, () => {
   it("renders average rating and rating count", () => {
     const pet = {
-      ratings: [{id: 1, value: 5},{id:2, value: 2},{id:3, value: 3},{id:4, value: 2}]
-    } as unknown as Pet;
+      ratings: [{petId: 1, value: 5},{petId:2, value: 2},{petId:3, value: 3},{petId:4, value: 2}]
+    } as Pet;
 
     const element = TestRenderer.create(<Rating pet={pet} />);
 

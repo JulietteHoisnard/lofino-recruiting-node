@@ -26,7 +26,7 @@ function soustractDays(date: Date, days: number) {
  * @returns the pet with the most ratings within the [date - 7 days, date] interval or `undefined` if there is unsufficient data within the interval
  */
 export function getTrendingPet(pets: Pet[], date: Date): Pet | undefined {
-  const trendingPet: Pet | undefined= pets.sort((peta, petb) => (petLength(petb, date) - petLength(peta, date)))[0];
+  const trendingPet: Pet | undefined = pets.sort((peta, petb) => (petLength(petb, date) - petLength(peta, date)))[0];
   if (petLength(trendingPet, date) === 0) {
     return undefined;
   } else {
