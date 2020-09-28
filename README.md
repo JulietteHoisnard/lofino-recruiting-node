@@ -15,19 +15,19 @@ This repository comes with two software projects: A Node.js based backend and a 
 ## Backend
 
 - [x] provide a server application based on Node.js that serves an **API** over HTTP
-- [ ] extend the API to allow users to rate existing pets (e.g. give a rating of 1-5 per pet)
+- [x] extend the API to allow users to rate existing pets (e.g. give a rating of 1-5 per pet)
   - the ratings should be stored on the backend as well. You can call `addRating()` in the `petsRepository` for that.
-- [ ] implement the `getTrendingPet()` function in `service/petsService` that finds the _trending_ Pet for an arbitrary point in time. A pet is considered trending if it has the most number of ratings within a time frame of the previous 7 days from the point in time we want to consider. See the documentation of the `getTrendingPet()` stub for more information.
-- [ ] provide an endpoint which returns the trending pet for the current day. Note that the trending pet may change as you add ratings.
+- [x] implement the `getTrendingPet()` function in `service/petsService` that finds the _trending_ Pet for an arbitrary point in time. A pet is considered trending if it has the most number of ratings within a time frame of the previous 7 days from the point in time we want to consider. See the documentation of the `getTrendingPet()` stub for more information.
+- [x] provide an endpoint which returns the trending pet for the current day. Note that the trending pet may change as you add ratings.
 
 ## Frontend
 
 - [x] provide a frontend application based on React.js that consumes the backend API
 - [x] create a start page that lists all the pets with their infos
   - [x] display the name and image
-  - [ ] display the current age of the pet
-  - [ ] display the average rating and the number of ratings
-  - [ ] on the details page of the pet, add an input element that lets the user rate the pet (which sends the rating to the backend).
+  - [x] display the current age of the pet
+  - [x] display the average rating and the number of ratings
+  - [x] on the details page of the pet, add an input element that lets the user rate the pet (which sends the rating to the backend).
     - Make this rating element look like the interactive 5-star rating UI known from e.g. amazon.
     - encode the existing rating in this ui element. I.e. if the pet has an average rating of 3.2, display the first 3 stars differently than the remaining 2 stars. You can use `frontend/public/star-empty.png` and `frontend/public/star-filled.png` for that.
   - [ ] BONUS: if today is the birthday of a pet then show [this picture of a birthday hat](frontend/public/birthday-hat.png) rotated and halfway overlapping with the pet image (see [mockup](mockups/birthday-hat.png))
